@@ -5,7 +5,7 @@ from mininet.log import setLogLevel
 
 class SingleSwitchTopo(Topo):
     "Single switch connected to n hosts."
-    def build(self, n=2):
+    def build(self, n=20):
         switch = self.addSwitch('s1')
         # Python's range(N) generates 0..N-1
         for h in range(n):
