@@ -33,6 +33,13 @@ def runTest(_delay):
     print "Dumping host connections"
     dumpNodeConnections(net.hosts)
     print "Testing network connectivity"
+    
+    s1, s2, r1, r2 = net.getNodeByName('hs1', 'hs2','hr1', 'hr2')
+    
+    
+    
+    CLI(net)
+    net.stop()
 
 if __name__ == '__main__':
     # Tell mininet to print useful information
