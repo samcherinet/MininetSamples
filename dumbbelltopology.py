@@ -3,7 +3,7 @@ from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 
-class DumbbellTopology(Topo):
+class DumbbellTopology(Topo, _delay):
     "4 hosts 4 switches."
     def build(self):
         switch_sender_access = self.addSwitch('sa1')
@@ -14,7 +14,7 @@ class DumbbellTopology(Topo):
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access,switch_receiver_root)
         
-        self.addLink(switch_sender_root,switch_receiver_root)
+        self.addLink(switch_sender_root,switch_receiver_root,delay=_delay)
         
         host_sender_1 = self.addHost('hs1')
         self.addLink(host_sender_1, switch_sender_access)
@@ -25,7 +25,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2')
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest():
+def runTest(_delay):
     "Create and test the network"
     topo = DumbbellTopology()
     net = Mininet(topo)
@@ -37,4 +37,5 @@ def runTest():
 if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
-    runTest()
+    # _delay='81ms',_delay='162ms'
+    runTest(_delay='21ms')
