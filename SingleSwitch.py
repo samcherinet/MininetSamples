@@ -34,6 +34,10 @@ def simpleTest():
     print "Dumping host connections"
     dumpNodeConnections(net.hosts)
     print "Testing network connectivity"
+    
+    s1, r2 = net.getNodeByName('hs1', 'hr2')
+    net.iperf( ( s1, r2 ) )
+    
     CLI(net)
     net.stop()
 
