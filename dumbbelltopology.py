@@ -39,7 +39,7 @@ def runTest():
     
     #start server on recievers
     serverArg = 'iperf3 -s -p 5566 -i 1'
-    r1.sendCmd(serverArg)
+    #r1.sendCmd(serverArg)
     #r2.sendCmd(serverArg)
     
     print serverArg
@@ -62,7 +62,7 @@ def runTest():
     
     print client2Arg
     
-    r1.waitOutput()
+    #r1.waitOutput()
     
     CLI(net)
     net.stop()
