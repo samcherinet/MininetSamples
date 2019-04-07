@@ -14,7 +14,7 @@ class DumbbellTopology(Topo):
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access,switch_receiver_root)
         
-        self.addLink(switch_sender_root,switch_receiver_root,delay=_delay)
+        self.addLink(switch_sender_root,switch_receiver_root)
         
         host_sender_1 = self.addHost('hs1')
         self.addLink(host_sender_1, switch_sender_access)
@@ -25,7 +25,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2')
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest(_delay):
+def runTest():
     "Create and test the network"
     topo = DumbbellTopology()
     net = Mininet(topo)
