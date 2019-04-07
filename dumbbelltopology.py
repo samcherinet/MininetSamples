@@ -15,7 +15,7 @@ class DumbbellTopology(Topo):
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access,switch_receiver_root)
         
-        self.addLink(switch_sender_root,switch_receiver_root,delay='162ms')
+        self.addLink(switch_sender_root,switch_receiver_root,bw=10, delay='15ms', loss=10, use_htb=True)
         
         host_sender_1 = self.addHost('hs1')
         self.addLink(host_sender_1, switch_sender_access)
