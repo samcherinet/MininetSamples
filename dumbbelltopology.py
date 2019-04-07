@@ -57,7 +57,7 @@ def runTest():
     s2.sendCmd(client2Arg)
     
     CLI(net)
-    #net.stop()
+   #net.stop()
 
 if __name__ == '__main__':
     # Tell mininet to print useful information
