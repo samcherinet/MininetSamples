@@ -3,6 +3,7 @@ from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 from mininet.cli import CLI
+from mininet.link import TCLink
 
 class DumbbellTopology(Topo):
     "4 hosts 4 switches."
@@ -29,7 +30,7 @@ class DumbbellTopology(Topo):
 def runTest():
     "Create and test the network"
     topo = DumbbellTopology()
-    net = Mininet(topo)
+    net = Mininet(topo, link=TCLink)
     net.start()
     print "Dumping host connections"
     dumpNodeConnections(net.hosts)
