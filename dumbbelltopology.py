@@ -6,7 +6,7 @@ from mininet.cli import CLI
 
 class DumbbellTopology(Topo):
     "4 hosts 4 switches."
-    def build(self, n=3, lossy=True):
+    def build(self):
         switch_sender_access = self.addSwitch('sa1')
         switch_sender_root = self.addSwitch('sr1')
         self.addLink(switch_sender_access, switch_sender_root)
@@ -15,7 +15,7 @@ class DumbbellTopology(Topo):
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access,switch_receiver_root)
         
-        self.addLink(switch_sender_root,switch_receiver_root,bw=10, delay='15ms', loss=10, use_htb=True)
+        self.addLink(switch_sender_root,switch_receiver_root,bw=10, delay='15ms')
         
         host_sender_1 = self.addHost('hs1')
         self.addLink(host_sender_1, switch_sender_access)
