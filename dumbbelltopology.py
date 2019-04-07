@@ -3,7 +3,7 @@ from mininet.net import Mininet
 from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 
-class DumbbellTopology(Topo, _delay):
+class DumbbellTopology(Topo):
     "4 hosts 4 switches."
     def build(self):
         switch_sender_access = self.addSwitch('sa1')
@@ -62,4 +62,4 @@ if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
     # _delay='81ms',_delay='162ms'
-    runTest(_delay='21ms')
+    runTest()
