@@ -39,8 +39,8 @@ def runTest():
     
     #start server on recievers
     serverArg = 'iperf3 -s -p 5566 -i 1'
-    r1.sendCmd(serverArg)
-    r2.sendCmd(serverArg)
+    #r1.sendCmd(serverArg)
+    #r2.sendCmd(serverArg)
     
     print serverArg
     
@@ -49,7 +49,7 @@ def runTest():
     client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s1r1.json' 
     #add delay
     #config algorithm
-    s1.sendCmd(client1Arg)
+    #s1.sendCmd(client1Arg)
     
     print client1Arg
     
@@ -58,7 +58,7 @@ def runTest():
     client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s2r2.json'
     #add delay
     #config algorithm
-    s2.sendCmd(client2Arg)
+    #s2.sendCmd(client2Arg)
     
     print client2Arg
     
