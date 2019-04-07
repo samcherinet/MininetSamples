@@ -6,7 +6,7 @@ from mininet.cli import CLI
 
 class DumbbellTopology(Topo):
     "4 hosts 4 switches."
-    def build(self,lossy=True):
+    def build(self, n=3, lossy=True):
         switch_sender_access = self.addSwitch('sa1')
         switch_sender_root = self.addSwitch('sr1')
         self.addLink(switch_sender_access, switch_sender_root)
