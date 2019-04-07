@@ -38,7 +38,7 @@ def runTest():
     s1, s2, r1, r2 = net.getNodeByName('hs1', 'hs2','hr1', 'hr2')
     
     #start server on recievers
-    serverArg = 'iperf -s -p 5566 -i 1'
+    serverArg = 'iperf3 -s -p 5566 -i 1'
     r1.sendCmd(serverArg)
     r2.sendCmd(serverArg)
     
@@ -46,7 +46,7 @@ def runTest():
     
     #simulate message from senders 15 apart
     #from s1 to r1'
-    client1Arg = 'iperf -c ' + r1.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s1r1.json' 
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s1r1.json' 
     #add delay
     #config algorithm
     s1.sendCmd(client1Arg)
@@ -55,7 +55,7 @@ def runTest():
     
     #wait 15 minutes
     #from s2 to r2
-    client2Arg = 'iperf -c ' + r2.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s2r2.json'
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -J --logfile /projects/result/s2r2.json'
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
