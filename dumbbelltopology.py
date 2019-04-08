@@ -40,8 +40,8 @@ def runTest():
     
     #start server on recievers
     serverArg = 'iperf3 -s -p 5566 -i 1'
-    #r1.sendCmd(serverArg)
-    #r2.sendCmd(serverArg)
+    r1.sendCmd(serverArg)
+    r2.sendCmd(serverArg)
     
     print serverArg
     
