@@ -4,6 +4,7 @@ from mininet.util import dumpNodeConnections
 from mininet.log import setLogLevel
 from mininet.cli import CLI
 from mininet.link import TCLink
+import time
 
 class DumbbellTopology(Topo):
     "4 hosts 4 switches."
@@ -56,10 +57,11 @@ def runTest():
     
     #wait 15 minutes
     #from s2 to r2
-    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -J --logfile /projects/results/s2r2.json'
+    time.sleep(5)
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -J > s2r2.json'
     #add delay
     #config algorithm
-    #s2.sendCmd(client2Arg)
+    s2.sendCmd(client2Arg)
     
     print client2Arg
     
