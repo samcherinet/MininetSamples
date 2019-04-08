@@ -29,9 +29,9 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2')
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest():
+def runTest(d='21ms'):
     "Create and test the network"
-    topo = DumbbellTopology(d='21ms')
+    topo = DumbbellTopology(d=d)
     net = Mininet(topo, link=TCLink)
     net.start()
     print "Dumping host connections"
@@ -78,4 +78,4 @@ if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
     # _delay='81ms',_delay='162ms'
-    runTest()
+    runTest(d=sys.argv[1])
