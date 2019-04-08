@@ -1,32 +1,32 @@
 #!/bin/bash
 
 sudo mn -c;
-python dumbbelltopology.py 21ms reno 100;
+python dumbbelltopology.py 21ms reno 1000;
 sudo mn -c;
-python dumbbelltopology.py 81ms reno 100;
+python dumbbelltopology.py 81ms reno 1000;
 sudo mn -c;
-python dumbbelltopology.py 162ms reno 100;
+python dumbbelltopology.py 162ms reno 1000;
 
 sudo mn -c;
-python dumbbelltopology.py 21ms bic 100;
+python dumbbelltopology.py 21ms bic 1000;
 sudo mn -c;
-python dumbbelltopology.py 81ms bic 100;
+python dumbbelltopology.py 81ms bic 1000;
 sudo mn -c;
-python dumbbelltopology.py 162ms bic 100;
+python dumbbelltopology.py 162ms bic 1000;
 
 sudo mn -c;
-python dumbbelltopology.py 21ms vegas 100;
+python dumbbelltopology.py 21ms vegas 1000;
 sudo mn -c;
-python dumbbelltopology.py 81ms vegas 100;
+python dumbbelltopology.py 81ms vegas 1000;
 sudo mn -c;
-python dumbbelltopology.py 162ms vegas 100;
+python dumbbelltopology.py 162ms vegas 1000;
 
 sudo mn -c;
-python dumbbelltopology.py 21ms scalable 100;
+python dumbbelltopology.py 21ms scalable 1000;
 sudo mn -c;
-python dumbbelltopology.py 81ms scalable 100;
+python dumbbelltopology.py 81ms scalable 1000;
 sudo mn -c;
-python dumbbelltopology.py 162ms scalable 100;
+python dumbbelltopology.py 162ms scalable 1000;
 
 git pull;
 git add .
