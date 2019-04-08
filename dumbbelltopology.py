@@ -46,7 +46,13 @@ def runTest():
     
     print serverArg
     
-   
+    #simulate message from senders 15 apart
+    #from s1 to r1'
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J > s1r1.json' 
+    #add delay
+    #config algorithm
+    s1.sendCmd(client1Arg)
+     print client1Arg
     
     #wait 15 minutes
     #from s2 to r2
@@ -55,22 +61,16 @@ def runTest():
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
-    
     print client2Arg
+        
+    #wait for 20 minute to finish testing
+    t = 0
+    while t++ < 15 :
+        time.sleep(1)
     
-     #simulate message from senders 15 apart
-    #from s1 to r1'
-    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J  > s1r1.json' 
-    #add delay
-    #config algorithm
-    s1.sendCmd(client1Arg)
-    
-    print client1Arg
-    
-    #r1.waitOutput()
-    
-    CLI(net)
-    #net.stop()
+    #CLI(net)
+    Popen("killall -9 top bwm-ng", shell=True).wait()
+    net.stop()
 
 if __name__ == '__main__':
     # Tell mininet to print useful information
