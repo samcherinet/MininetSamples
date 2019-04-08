@@ -52,7 +52,7 @@ def runTest():
     #add delay
     #config algorithm
     s1.sendCmd(client1Arg)
-     print client1Arg
+    print client1Arg
     
     #wait 15 minutes
     #from s2 to r2
