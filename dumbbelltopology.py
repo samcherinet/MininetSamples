@@ -13,6 +13,7 @@ class DumbbellTopology(Topo):
         
     "4 hosts 4 switches."
     def build(self):
+        print _delay
         switch_sender_access = self.addSwitch('sa1'+_delay)
         switch_sender_root = self.addSwitch('sr1'+_delay)
         self.addLink(switch_sender_access, switch_sender_root)
