@@ -66,7 +66,7 @@ def runTest():
     #wait for 20 minute to finish testing
     t = 0
     while t < 15 :
-        t++
+        t += 1
         time.sleep(1)
     
     #CLI(net)
