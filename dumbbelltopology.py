@@ -8,9 +8,9 @@ import time
 from subprocess import Popen, PIPE
 
 class DumbbellTopology(Topo):
-   _delay = '26ms'
+     _delay = '26ms'
         
-    "4 hosts 4 switches."
+    #"4 hosts 4 switches."
     def build(self):
         print 'printing the paramter delay ' + _delay
         switch_sender_access = self.addSwitch('sa1'+_delay)
