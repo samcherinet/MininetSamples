@@ -7,7 +7,10 @@ from mininet.link import TCLink
 import time
 from subprocess import Popen, PIPE
 
-class DumbbellTopology(Topo, _delay):
+class DumbbellTopology(Topo):
+    def __init__(self,_delay):
+        self._delay = _delay
+        
     "4 hosts 4 switches."
     def build(self):
         switch_sender_access = self.addSwitch('sa1'+_delay)
