@@ -46,14 +46,7 @@ def runTest():
     
     print serverArg
     
-    #simulate message from senders 15 apart
-    #from s1 to r1'
-    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J  > s1r1.json' 
-    #add delay
-    #config algorithm
-    s1.sendCmd(client1Arg)
-    
-    print client1Arg
+   
     
     #wait 15 minutes
     #from s2 to r2
@@ -64,6 +57,15 @@ def runTest():
     s2.sendCmd(client2Arg)
     
     print client2Arg
+    
+     #simulate message from senders 15 apart
+    #from s1 to r1'
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J  > s1r1.json' 
+    #add delay
+    #config algorithm
+    s1.sendCmd(client1Arg)
+    
+    print client1Arg
     
     #r1.waitOutput()
     
