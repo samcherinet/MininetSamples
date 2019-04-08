@@ -44,6 +44,7 @@ def runTest(d='21ms',alg='RENO',l=100):
     #start server on recievers
     serverArg = 'iperf3 -s -p 5566 -i 1'
     r1.sendCmd(serverArg)
+    time.sleep(2)
     r2.sendCmd(serverArg)
     
     print serverArg
