@@ -10,19 +10,19 @@ from subprocess import Popen, PIPE
 class DumbbellTopology(Topo):
      _delay = '26ms'
         
-    #"4 hosts 4 switches."
-    def build(self):
+     #"4 hosts 4 switches."
+     def build(self):
         print 'printing the paramter delay ' + _delay
         switch_sender_access = self.addSwitch('sa1'+_delay)
         switch_sender_root = self.addSwitch('sr1'+_delay)
         self.addLink(switch_sender_access, switch_sender_root)
-        
+
         switch_receiver_access = self.addSwitch('ra1'+_delay)
         switch_receiver_root = self.addSwitch('rr1'+_delay)
         self.addLink(switch_receiver_access,switch_receiver_root)
-        
+
         self.addLink(switch_sender_root,switch_receiver_root,bw=10, delay=_delay)
-        
+
         host_sender_1 = self.addHost('hs1'+_delay)
         self.addLink(host_sender_1, switch_sender_access)
         host_sender_2 = self.addHost('hs2'+_delay)
