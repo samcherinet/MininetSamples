@@ -75,9 +75,9 @@ if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
     # _delay='81ms',_delay='162ms'
-    net1 = runTest('21ms')
-    net2 = runTest('81ms')
-    net3 = runTest('162ms')
+    net1 = runTest('21ms',5566)
+    net2 = runTest('81ms',5567)
+    net3 = runTest('162ms',5568)
     
     #wait for 20 minute to finish testing
     t = 0
