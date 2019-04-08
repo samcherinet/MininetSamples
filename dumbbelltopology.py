@@ -72,7 +72,7 @@ def runTest(d='21ms'):
         time.sleep(1)
     
     #CLI(net)
-    Popen("killall -9 top bwm-ng", shell=True).wait()
+    Popen("killall -9", shell=True).wait()
     net.stop()
 
 if __name__ == '__main__':
