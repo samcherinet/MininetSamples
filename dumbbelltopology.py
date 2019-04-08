@@ -30,7 +30,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2'+_delay)
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest(_delay='21ms'):
+def runTest(_delay='21ms',_port):
     print 'running test for a delay of ' + _delay
     
     "Create and test the network"
@@ -45,7 +45,7 @@ def runTest(_delay='21ms'):
     s1, s2, r1, r2 = net.getNodeByName('hs1'+_delay, 'hs2'+_delay,'hr1'+_delay, 'hr2'+_delay)
     
     #start server on recievers
-    serverArg = 'iperf3 -s -p 5566 -i 1'
+    serverArg = 'iperf3 -s -p '+_port+' -i 1'
     r1.sendCmd(serverArg)
     r2.sendCmd(serverArg)
     
@@ -53,7 +53,7 @@ def runTest(_delay='21ms'):
     
     #simulate message from senders 15 apart
     #from s1 to r1'
-    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J > '+_delay+'_s1r1.json' 
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p '+_port+' -t 15 -i .1 -J > '+_delay+'_s1r1.json' 
     #add delay
     #config algorithm
     s1.sendCmd(client1Arg)
@@ -62,7 +62,7 @@ def runTest(_delay='21ms'):
     #wait 15 minutes
     #from s2 to r2
     time.sleep(5)
-    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -i .1 -J > '+_delay+'_s2r2.json'
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p '+_port+' -t 15 -i .1 -J > '+_delay+'_s2r2.json'
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
