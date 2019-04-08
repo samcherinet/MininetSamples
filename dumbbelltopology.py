@@ -68,7 +68,7 @@ def runTest(d='21ms',alg='RENO',l=100):
         
     #wait for 20 minute to finish testing
     t = 0
-    while t < int(l*.75) :
+    while t < int(float(l)*.75) :
         t += 1
         print str(t) + ' seconds completed'
         time.sleep(1)
