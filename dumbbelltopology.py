@@ -30,7 +30,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2'+_delay)
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest(_delay='21ms',_port=5566):
+def runTest(_delay='21ms',_port='5566'):
     print 'running test for a delay of ' + _delay
     
     "Create and test the network"
@@ -75,9 +75,9 @@ if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
     # _delay='81ms',_delay='162ms'
-    net1 = runTest('21ms',5566)
-    net2 = runTest('81ms',5567)
-    net3 = runTest('162ms',5568)
+    net1 = runTest('21ms','5566')
+    net2 = runTest('81ms','5567')
+    net3 = runTest('162ms','5568')
     
     #wait for 20 minute to finish testing
     t = 0
