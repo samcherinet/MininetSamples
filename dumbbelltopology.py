@@ -60,7 +60,7 @@ def runTest(d='21ms',alg='RENO',l=100):
     #from s2 to r2
     time.sleep(int(float(l)*.25))
     print 'starting the second send'
-    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t '+str(l*.75)+' -i .2 -C '+alg+' -J > s2r2_'+d+'_'+alg+'.json'
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t '+str(int(float(l)*.75))+' -i .2 -C '+alg+' -J > s2r2_'+d+'_'+alg+'.json'
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
