@@ -19,7 +19,7 @@ class DumbbellTopology(Topo):
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access,switch_receiver_root)
         
-        self.addLink(switch_sender_root,switch_receiver_root,bw=10, delay=d)
+        self.addLink(switch_sender_root,switch_receiver_root, delay=d)
         
         host_sender_1 = self.addHost('hs1')
         self.addLink(host_sender_1, switch_sender_access)
@@ -50,7 +50,7 @@ def runTest(d='21ms',alg='RENO'):
     
     #simulate message from senders 15 apart
     #from s1 to r1'
-    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -C '+alg+' > s1r1_'+d+'_'+alg+'.txt' 
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 1000 -i .2 -C '+alg+' -J > s1r1_'+d+'_'+alg+'.json' 
     #add delay
     #config algorithm
     s1.sendCmd(client1Arg)
@@ -58,8 +58,9 @@ def runTest(d='21ms',alg='RENO'):
     
     #wait 15 minutes
     #from s2 to r2
-    time.sleep(5)
-    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -i .1 -C '+alg+' > s2r2_'+d+'_'+alg+'.txt'
+    time.sleep(250)
+    print 'starting the second send'
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 750 -i .2 -C '+alg+' -J > s2r2_'+d+'_'+alg+'.json'
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
@@ -67,8 +68,9 @@ def runTest(d='21ms',alg='RENO'):
         
     #wait for 20 minute to finish testing
     t = 0
-    while t < 15 :
+    while t < 760 :
         t += 1
+        print str(t) + ' seconds completed'
         time.sleep(1)
     
     #CLI(net)
