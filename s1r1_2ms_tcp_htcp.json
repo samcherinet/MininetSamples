@@ -1,0 +1,21 @@
+{
+	"start":	{
+		"connected":	[],
+		"version":	"iperf 3.0.7",
+		"system_info":	"Linux mininet-vm 4.2.0-27-generic #32~14.04.1-Ubuntu SMP Fri Jan 22 15:32:26 UTC 2016 x86_64 x86_64 x86_64 GNU/Linux\n",
+		"timestamp":	{
+			"time":	"Mon, 08 Apr 2019 20:57:56 GMT",
+			"timesecs":	1554757076
+		},
+		"connecting_to":	{
+			"host":	"10.0.0.1",
+			"port":	5566
+		},
+		"cookie":	"mininet-vm.1554757076.319664.1d38b3b",
+		"tcp_mss_default":	1448
+	},
+	"intervals":	[],
+	"end":	{
+	},
+	"error":	"error - unable to set TCP_CONGESTION: Supplied congestion control algorithm not supported on this host"
+}

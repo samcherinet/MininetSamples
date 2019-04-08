@@ -1,18 +1,18 @@
 #!/bin/bash
 
 sudo mn -c;
-python dumbbelltopology.py 21ms bic 1000;
+python dumbbelltopology.py 21ms westwood 100;
 sudo mn -c;
-python dumbbelltopology.py 81ms bic 1000;
+python dumbbelltopology.py 81ms westwood 100;
 sudo mn -c;
-python dumbbelltopology.py 162ms bic 1000;
+python dumbbelltopology.py 162ms westwood 100;
 
 sudo mn -c;
-python dumbbelltopology.py 21ms scalable 1000;
+python dumbbelltopology.py 21ms htcp 100;
 sudo mn -c;
-python dumbbelltopology.py 81ms scalable 1000;
+python dumbbelltopology.py 81ms htcp 100;
 sudo mn -c;
-python dumbbelltopology.py 162ms scalable 1000;
+python dumbbelltopology.py 162ms htcp 100;
 
 git pull;
 git add .
