@@ -6,6 +6,7 @@ from mininet.cli import CLI
 from mininet.link import TCLink
 import time
 import sys
+from subprocess import Popen, PIPE
 
 class DumbbellTopology(Topo):
     "4 hosts 4 switches."
