@@ -65,7 +65,7 @@ def runTest():
     
     #r1.waitOutput()
     
-    #CLI(net)
+    CLI(net)
     #net.stop()
 
 if __name__ == '__main__':
