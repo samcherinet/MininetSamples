@@ -30,7 +30,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2'+_delay)
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest(_delay='21ms',_port):
+def runTest(_delay='21ms',_port=5566):
     print 'running test for a delay of ' + _delay
     
     "Create and test the network"
