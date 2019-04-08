@@ -30,7 +30,7 @@ class DumbbellTopology(Topo):
         host_receiver_2 = self.addHost('hr2')
         self.addLink(host_receiver_2, switch_receiver_access)
         
-def runTest(d='21ms'):
+def runTest(d='21ms',alg='RENO'):
     "Create and test the network"
     topo = DumbbellTopology(d=d)
     net = Mininet(topo, link=TCLink)
@@ -50,7 +50,7 @@ def runTest(d='21ms'):
     
     #simulate message from senders 15 apart
     #from s1 to r1'
-    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J > s1r1'+d+'.json' 
+    client1Arg = 'iperf3 -c ' + r1.IP() + ' -p 5566 -t 15 -i .1 -J -C '+alg+' > s1r1_'+d+'_'+alg+'.json' 
     #add delay
     #config algorithm
     s1.sendCmd(client1Arg)
@@ -59,7 +59,7 @@ def runTest(d='21ms'):
     #wait 15 minutes
     #from s2 to r2
     time.sleep(5)
-    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -i .1 -J > s2r2'+d+'.json'
+    client2Arg = 'iperf3 -c ' + r2.IP() + ' -p 5566 -t 15 -i .1 -J -C '+alg+' > s2r2_'+d+'_'+alg+'.json'
     #add delay
     #config algorithm
     s2.sendCmd(client2Arg)
@@ -79,4 +79,4 @@ if __name__ == '__main__':
     # Tell mininet to print useful information
     setLogLevel('info')
     # _delay='81ms',_delay='162ms'
-    runTest(d=sys.argv[1])
+    runTest(d=sys.argv[1],alg=sys.argv[2])
