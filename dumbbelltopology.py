@@ -72,7 +72,7 @@ def runTest(d='21ms'):
         time.sleep(1)
     
     #CLI(net)
-    Popen("killall -9 iperf", shell=True).wait()
+    Popen("killall -9 iperf3", shell=True).wait()
     net.stop()
 
 if __name__ == '__main__':
