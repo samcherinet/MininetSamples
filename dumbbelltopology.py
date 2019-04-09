@@ -15,12 +15,14 @@ class DumbbellTopology(Topo):
         switch_sender_root = self.addSwitch('sr1')
         self.addLink(switch_sender_access
                     , switch_sender_root
+                    , max_queue_size = 50
                     , bw = 250)
         
         switch_receiver_access = self.addSwitch('ra1')
         switch_receiver_root = self.addSwitch('rr1')
         self.addLink(switch_receiver_access
                     , switch_receiver_root
+                    , max_queue_size = 50
                     , bw = 250)
         
         self.addLink(switch_sender_root,switch_receiver_root,bw=960, delay=d)
