@@ -13,22 +13,26 @@ class DumbbellTopology(Topo):
     def build(self, d, **_kwargs):
         switch_sender_access = self.addSwitch('sa1')
         switch_sender_root = self.addSwitch('sr1')
-        self.addLink(switch_sender_access, switch_sender_root)
+        self.addLink(switch_sender_access
+                    , switch_sender_root
+                    , bw = 250)
         
         switch_receiver_access = self.addSwitch('ra1')
         switch_receiver_root = self.addSwitch('rr1')
-        self.addLink(switch_receiver_access,switch_receiver_root)
+        self.addLink(switch_receiver_access
+                    , switch_receiver_root
+                    , bw = 250)
         
-        self.addLink(switch_sender_root,switch_receiver_root,bw=5, delay=d)
+        self.addLink(switch_sender_root,switch_receiver_root,bw=960, delay=d)
         
         host_sender_1 = self.addHost('hs1')
-        self.addLink(host_sender_1, switch_sender_access)
+        self.addLink(host_sender_1, switch_sender_access,bw=960)
         host_sender_2 = self.addHost('hs2')
-        self.addLink(host_sender_2, switch_sender_access)
+        self.addLink(host_sender_2, switch_sender_access,bw=960)
         host_receiver_1 = self.addHost('hr1')
-        self.addLink(host_receiver_1, switch_receiver_access)
+        self.addLink(host_receiver_1, switch_receiver_access,bw=960)
         host_receiver_2 = self.addHost('hr2')
-        self.addLink(host_receiver_2, switch_receiver_access)
+        self.addLink(host_receiver_2, switch_receiver_access,,bw=960)
         
 def runTest(d='21ms',alg='RENO',l=100):
     "Create and test the network"
