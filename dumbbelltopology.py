@@ -32,7 +32,7 @@ class DumbbellTopology(Topo):
         host_receiver_1 = self.addHost('hr1')
         self.addLink(host_receiver_1, switch_receiver_access,bw=960)
         host_receiver_2 = self.addHost('hr2')
-        self.addLink(host_receiver_2, switch_receiver_access,,bw=960)
+        self.addLink(host_receiver_2, switch_receiver_access,bw=960)
         
 def runTest(d='21ms',alg='RENO',l=100):
     "Create and test the network"
